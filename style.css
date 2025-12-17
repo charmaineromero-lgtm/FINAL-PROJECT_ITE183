@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Inter", sans-serif;
+    background: #e9eef7; 
+    color: #1a2a3a;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #395a9a, #2c4370); 
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #13305a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+header::after {
+    content: "🛺"; 
+    display: block;
+    font-size: 2rem;
+    opacity: 0.8;
+    margin-top: 8px;
+}
+
+.app-container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: #f8faff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.06);
+    border: 1px solid #d4ddee;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #27466f;
+    border-left: 5px solid #3a66b0;
+    padding-left: 12px;
+}
+
+button {
+    padding: 12px 16px;
+    border: none;
+    background: #3a66b0;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #2c4f8a;
+}
+
+.graph-box {
+    background: #cddcf1;
+    border: 2px dashed #547bb6;
+    border-radius: 14px;
+    padding: 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #32507a;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.route-card {
+    background: #dce7f7;
+    border: 1px solid #b2c4de;
+    border-radius: 14px;
+    padding: 16px;
+    margin: 10px 0;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.route-card::before {
+    content: "🛺";
+    font-size: 1.7rem;
+    opacity: 0.85;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 15px 0;
+    color: #3b4f6c;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViaGraph Simulation Route Map</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #12464b;
+  }
+  #map {
+    height: 100vh;
+    width: 100%;
+  }
+  #searchBar {
+    position: absolute;
+    top: 20px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(54, 107, 253, 0.329);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    padding: 9px 10px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  #searchBar label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  #searchBar select {
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid #494949;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s ease;
+    background: rgba(255, 255, 255, 0.815);
+  }
+  #searchBar select:focus {
+    border-color: #27e6ff;
+    box-shadow: 0 0 6px rgba(1, 97, 114, 0.4);
+  }
+  #searchInput {
+    width: 260px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+  #findBtn {
+    background: linear-gradient(to right, #4be0fa, #028daf);
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+  }
+  #findBtn:hover {
+    background: #7dd1f8da;
+    color: #0d181a;
+    transform: translateY(-2px);
+  }
+  #sidebar {
+    position: absolute;
+    right: 20px;
+    top: 150px;
+    z-index: 9999;
+    width: 300px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.61);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  #sidebar h3 {
+    font-size: 18px;
+    color: #ff3737;
+    font-weight: 700;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: px 10px;
+  }
+  #routeInfo {
+    color: white;
+    font-size: 14px;
+  }
+  h3 {
+    margin: 0 0 10px;
+  }
+  b {
+    color: #222;
+  }
+  .pulse-marker {
+    background: rgba(0, 119, 255, 0.404);
+    border: 2px solid rgba(0, 153, 255, 0.767);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: pulse 1.5s infinite;
+  }
+  .map-toggle-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: linear-gradient(to right, #4be0fa, #028daf);
+    padding: 10px 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 650;
+    transition: 0.25s ease;
+    user-select: none;
+  }
+  .map-toggle-btn.active {
+    background: #0c6669;
+    color: #fff;
+  }
+  #routeInstructionsPanel {
+    position: absolute;
+    font-size: 13px;
+    bottom: 20px;
+    right: 130px;
+    width: 300px;
+    max-height: 40vh;
+    overflow-y: auto;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    display: none; /* Hidden by default */
+  }
+  #toggleInstructionsBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+  }
+  #toggleInstructionsBtn:hover {
+    background: #0c6669;
+    color: #fff;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    50% { transform: scale(1.4); opacity: 0.3; }
+    100% { transform: scale(0.8); opacity: 0.8; }
+  }
+  #floatingLogo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10000;
+    padding: 8px 12px;
+  }
+  #floatingLogo img {
+    width: 80px;
+    height: auto;
+    display: block;
+  }
+  .leaflet-routing-container {
+    display: none !important;
+  }
+</style>
+</head>
+<body>
+  <div id="searchBar">
+    <label for="origin">Origin:</label>
+    <select id="origin"></select>
+    
+    <label for="destination">Destination:</label>
+    <select id="destination"></select>
+    
+    <button id="findBtn" onclick="findRoute()">Search</button>
+  </div>
+    
+  <div id="sidebar">
+    <h3>Route Information</h3>
+    <div id="routeDetails"></div>
+  </div>
+    
+  <div id="routeInstructionsPanel">
+    <div id="routeSteps"></div>
+  </div>
+    
+  <div id="toggleInstructionsBtn">Show Directions</div>
+    
+  <div id="satToggle" class="map-toggle-btn">🛰 Satellite</div>
+    
+  <div id="map"></div>
+    
+  <div id="floatingLogo">
+    <a href="home.html">
+      <img src="ViaGraph_LOGO.png" alt="ViaGraph Logo" style="cursor:pointer;">
+    </a>
+  </div>
+    
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script src="map.js"></script>
+
+<script type="module">
+  import { tamboRoute, dalipugaRoute, palaoRoute, ubaldoRoute, santaigoRoute, sanmiguelRoute, minibusRoute } from './routes.js';
+    L.geoJSON(tamboRoute, {
+      style: { color: "#5dade2", weight: 4, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+  
+    L.geoJSON(dalipugaRoute, {
+      style: { color: "#5dade2", weight: 3, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+  
+    L.geoJSON(palaoRoute, {
+      style: { color: "#5dade2", weight: 3, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+  
+    L.geoJSON(ubaldoRoute, {
+      style: { color: "#5dade2", weight: 3, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+  
+    L.geoJSON(santaigoRoute, {
+      style: { color: "#5dade2", weight: 3, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+  
+    L.geoJSON(sanmiguelRoute, {
+      style: { color: "#5dade2", weight: 3, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+
+    L.geoJSON(minibusRoute, {
+      style: { color: "#5dade2", weight: 3, dashArray: "6, 8", opacity: 0.9 }
+    }).addTo(map);
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ViaGraph - Sign In</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #12464b; 
+            color: #e6e6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1500px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+        }
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;      
+            text-align: center;       
+            gap: 25px;
+            padding-right: 105px;
+        }
+
+        .left img {
+            width: 160px;
+            border-radius: 25px;
+            margin-bottom: 10px;
+        }
+
+        .left h1 {
+            font-size: 50px;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(to right, #78e8fc, #05a7cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .left p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .left ul {
+            font-size: 18px;
+            list-style: disc;
+            padding-left: 0;
+            margin-top: 5px;
+            text-align: justify;
+            margin-right: -20px;
+            max-width: 350px;
+        }
+
+        .sub-note {
+            display: block;
+            font-size: 18px;
+            margin-left: 25px; 
+        }
+
+
+        .left ul li {
+            margin-bottom: 8px;
+            list-style-position: inside;
+        }
+
+        .card {
+            background: rgba(67, 111, 129, 0.637);
+            width: 400px;
+            padding: 35px;
+            margin-right: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.356);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin: 0 0 1px 0;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .sub {
+            text-align: center;
+            margin: 0 0 18px 0;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+            display: block;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #fffefe;
+        }
+
+        input {
+            width: 100%;
+            background: rgba(41, 52, 56, 0.589);
+            border: 1px solid #344148;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 15px;
+            color: white;
+            outline: none;
+            box-sizing: border-box;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            border: 1px solid #6fbaff; 
+            box-shadow: 0 0 6px rgba(111, 186, 255, 0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+            background: linear-gradient(to right, #4be0fa, #028daf);
+            color: white;
+            margin-top: 10px;
+            display: block;
+            box-sizing: border-box;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .login-btn:hover {
+            opacity: 0.85;
+            transform: translateY(-2px); 
+            color: rgb(0, 0, 0);
+        }
+
+        .login-btn:active {
+            transform: scale(0.97); 
+            opacity: 0.75;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #a4a9ac;
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #2d3a42;
+        }
+
+        .divider span {
+            margin: 0 10px;
+        }
+
+        .google-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #3a4e59;
+            background-color: #1d2a30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .google-btn img {
+            width: 20px;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .signup-text a {
+            color: #70b8fc;
+            text-decoration: none;
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .signup-text a:hover {
+            color: #ffffff;  
+            opacity: 0.85;
+        }
+
+        .signup-text a:active {
+            opacity: 0.55;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left">
+            <img src="ViaGraph_LOGO.png">
+            <h1>Welcome to ViaGraph</h1>
+            <p>Your optimized transport guide for navigating Iligan City</p>
+    
+            <ul>
+                <li>Jeepney & Minibus</li>
+                <li>Accurate routes & fare structure</li>
+                <li>Built for MSU-IIT students <span class="sub-note">(especially non-locals)</span></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h1>Sign In</h1>
+            <p class="sub">Use your @g.msuiit.edu.ph email</p>
+
+            <form>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="your.name@g.msuiit.edu.ph" required />
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required />
+                </div>
+
+                <button class="login-btn" onclick="window.location.href='home.html'; return false;">Sign In</button>
+            </form>
+
+            <div class="divider"><span>Or continue with</span></div>
+
+            <button class="google-btn">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google">
+                Sign in with Google
+            </button>
+
+            <p class="signup-text">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

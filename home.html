@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViaGraph - Home</title>
+
+  <style>
+    body {
+      background-color: #0f3f45;
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* Gradient Text */
+    .vg-gradient {
+      background: linear-gradient(to right, #4be0fa, #028daf);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-title {
+      background: linear-gradient(to right, #84f4e6, #4be0fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      background-color: #1a5059;
+      padding: 8px 33px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #84f4e6;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding-top: 50px;
+      padding-bottom: 40px;
+      gap: 80px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    @media(min-width: 1000px) {
+      .main-container {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* Left Panel */
+    .left {
+      padding-top: 10px;
+      max-width: 400px;
+      text-align: center;
+      margin-left: 70px;
+    }
+
+    .left img {
+      width: 180px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+    }
+
+    .left h2 {
+      font-size: 37px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .left p {
+      font-size: 18px;
+      color: #dbe8e9;
+      line-height: 1.6;
+    }
+
+    /* Cards */
+    .card {
+      background-color: rgba(26, 80, 89, 0.4);
+      border: 1px solid rgba(79, 209, 235, 0.2);
+      border-radius: 20px;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      margin-right: 1px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      background-color: rgba(71, 203, 226, 0.493);
+      color:rgb(0, 0, 0);
+    }
+
+    .card:focus {
+      border: 1px solid #6fbaff; 
+      box-shadow: 0 0 6px rgba(111, 186, 255, 0.5);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px; 
+    }
+
+    .card p {
+      color: #dbe8e9;
+    }
+
+    /* Cards Container */
+    .right {
+      width: 90%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-left: 80px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 20px;
+      color: #c8d4d4;
+      padding-bottom: 1px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h1 class="vg-gradient" style="font-size: 28px; font-weight: bold;">ViaGraph</h1>
+    <a href="index.html">Log Out</a>
+  </nav>
+
+  <div class="main-container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <img src="ViaGraph_LOGO.png" alt="ViaGraph Logo" />
+
+      <h2 class="vg-gradient">Welcome to ViaGraph</h2>
+
+      <p>Hi there! Lost in the city? ViaGraph's here to guide you. Start navigating Iligan City with confidence and ease.</p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+      <a href="map.html" class="card">
+        <h3 class="card-title">Route Finder</h3>
+        <p>Search for the best route, estimated fares, and travel time.</p>
+      </a>
+
+      <a href="iligan.html" class="card">
+        <h3 class="card-title">About Iligan City</h3>
+        <p>See the beauty of Iligan City. </p> <!-- Pictures of Tourists Spot, Infrastructure and short description -->
+      </a>
+
+      <a href="about.html" class="card">
+        <h3 class="card-title">About ViaGraph</h3>
+        <p>Learn how ViaGraph works and the technology behind it.</p>
+      </a>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 ViaGraph. All rights reserved.
+  </footer>
+
+</body>
+</html>

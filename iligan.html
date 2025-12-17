@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Iligan City</title>
+
+  <style>
+    body {
+      background-color: #0f3f45;
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #1a5059;
+      padding: 8px 33px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: fixed;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 70px;
+    }
+
+    nav a:hover {
+      color: #84f4e6;
+    }
+
+    .vg-gradient {
+      background: linear-gradient(to right, #4be0fa, #028daf);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Banner */
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .banner h1 {
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+      margin-top: 120px;
+    }
+
+    .spot-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 150px;
+      padding: 30px 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .spot-section img {
+      width: 450px;
+      height: 350px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      margin-left: 20px;
+    }
+
+    .spot-text h2 {
+      font-size: 32px;
+      background: linear-gradient(to right, #84f4e6, #4be0fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 12px;
+    }
+
+    .spot-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #dbe8e9;
+      max-width: 700px;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      padding: 20px;
+      font-size: 20px;
+      color: #c8d4d4;
+    }
+
+    @media (max-width: 850px) {
+      .spot-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .spot-section img {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h1 class="vg-gradient" style="font-size: 28px; font-weight: bold;">ViaGraph</h1>
+    <a href="home.html">Home</a>
+  </nav>
+
+  <!-- TOP BANNER -->
+  <div class="banner">
+    <h1>Welcome to Iligan City</h1>
+  </div>
+
+  <!-- SPOT 1 -->
+  <div class="spot-section">
+    <img src="https://www.travel-tramp.com/wp-content/uploads/2018/07/IMG_9508-Copy-Copy-1024x683.jpg" alt="Maria Cristina Falls">
+    <div class="spot-text">
+      <h2>Maria Cristina Falls</h2>
+      <p>
+        Known as the “Mother of Industry,” Maria Cristina Falls powers the Agus VI Hydroelectric Plant. 
+        It's one of Iligan’s most iconic natural landmarks and symbolizes the city’s connection to energy production.
+      </p>
+    </div>
+  </div>
+
+  <!-- SPOT 2 -->
+  <div class="spot-section">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9HSz6XbCkf361i9SzYZ7DNxb9HfPPRMb_OrOtpQmbVOGbZjtFEBeC6SVhX5GRgV-Ut5bxPfTfXjTtiM6DX_4ygDnJAEHiLkTPr2qK1wBZgij5IQzeBusWuercaiNPGkFi60KXrK-CzUM/s640/Tinago+Falls_Iligan+City.JPG" alt="Tinago Falls">
+    <div class="spot-text">
+      <h2>Tinago Falls</h2>
+      <p>
+        A hidden paradise surrounded by lush vegetation and cliffs, Tinago Falls is known for its cool blue waters 
+        and peaceful setting—a favorite among travelers seeking calm and nature.
+      </p>
+    </div>
+  </div>
+
+  <!-- SPOT 3 -->
+  <div class="spot-section">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Iligan_City_Hall_front_%28Pala-o%2C_Iligan%2C_Lanao_Del_Norte%3B_10-15-2023%29.jpg" alt="Iligan City Hall">
+    <div class="spot-text">
+      <h2>Iligan City Hall</h2>
+      <p>
+        Sitting atop a hill overlooking the city, Iligan City Hall is a landmark of governance and public service. 
+        Its location provides a scenic viewpoint of Iligan.
+      </p>
+    </div>
+  </div>
+
+  <!-- SPOT 4 -->
+  <div class="spot-section">
+    <img src="https://philmuslimtoday.wordpress.com/wp-content/uploads/2021/07/msu-iit-landmark.jpg?w=464" alt="MSU-IIT">
+    <div class="spot-text">
+      <h2>MSU-Iligan Institute of Technology</h2>
+      <p>
+        One of the country’s top universities in science and technology, MSU-IIT is a hub of research, innovation, 
+        and academic excellence that draws students from all over the Philippines.
+      </p>
+    </div>
+  </div>
+
+  <!-- SPOT 5 -->
+  <div class="spot-section">
+    <img src="https://i.pinimg.com/originals/f0/89/0e/f0890eb199d00d1f51c145997befffb4.jpg" alt="Paseo de Santiago Iligan">
+    <div class="spot-text">
+      <h2>Paseo de Santiago</h2>
+      <p>
+        Paseo de Santiago is a seaside leisure park famous for its relaxing sunset views, open-air dining, 
+        and the iconic giant “Iligan City” letters by the bay. It's one of the city’s favorite hangout 
+        spots for both locals and tourists, offering food stalls, cultural shows, and a chill sea breeze.
+      </p>
+    </div>
+  </div>
+
+  <!-- SPOT 6 -->
+  <div class="spot-section">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/469021213_600892175928936_5749370015385117083_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=qHymVck6NaEQ7kNvwH4T5Xi&_nc_oc=AdnxdZF08VouyVxsgCPoYJWMR5Ax1MRPCULYnuCtYXdkcoxuR2jrxT7rJiiwTIbg40H0fQxYZamQSDqiolhJKbiw&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=AlMQT6FrFPRY5hR2_RM7xw&oh=00_Afk7WufmrDE6IXMDT_dT6RKaoGz_8qox3Uv4CCQPNr0Aqw&oe=6941DA02" alt="Anahaw Amphitheater">
+    <div class="spot-text">
+      <h2>Anahaw Amphitheater</h2>
+      <p>
+        The Anahaw Amphitheater, located inside the Iligan City Public Plaza, is a cultural hub known for its 
+        open-air design and iconic green leaf-shaped architecture. It hosts city events, 
+        performances, and festivals — especially during Diyandi Festival. It's also a peaceful 
+        spot for relaxation with a good view of the surrounding park.
+      </p>
+    </div>
+  </div>
+ 
+  <!-- SPOT 7 -->
+  <div class="spot-section">
+    <img src="https://newsinfo.inquirer.net/files/2024/11/night-market-activity-Iloilo-City-11November2024.jpg" alt="Iligan Night Market">
+    <div class="spot-text">
+      <h2>Iligan City Night Market</h2>
+      <p>
+        The Iligan Night Market comes alive with food stalls, thrift shops, local crafts, 
+        and street performances. It’s one of the city’s busiest evening hotspots, offering 
+        affordable eats, unique finds, and a lively social atmosphere. A perfect stop for 
+        students, tourists, and locals looking for late-night food and fun.
+      </p>
+    </div>
+  </div>
+  
+  <footer>
+    © 2025 ViaGraph. All rights reserved.
+  </footer>
+
+</body>
+</html>
